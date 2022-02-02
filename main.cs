@@ -9,7 +9,6 @@ internal static class primes
     int number = Int32.Parse(Console.ReadLine()!);
     Console.Write("Your two prime numbers are ");
     Console.WriteLine($"{AddPrimes(number, Primes(number))[0]} and {AddPrimes(number, Primes(number))[1]}");
-
   }
   private static List<int> Primes(int num)
   {
