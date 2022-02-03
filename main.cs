@@ -1,23 +1,29 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 internal static class primes
 {
   private static void Main(string[] args)
   {
+    var stopWatch = new Stopwatch();
     Console.WriteLine("Enter in a even number above 2");
-    ulong number = UInt64.Parse(Console.ReadLine()!);
+    stopWatch.Start();
+    int number = Int32.Parse(Console.ReadLine()!);
     Console.Write("Your two prime numbers are ");
     Console.WriteLine($"{AddPrimes(number, Primes(number))[0]} and {AddPrimes(number, Primes(number))[1]}");
+    stopWatch.Stop();
+    TimeSpan ts = stopWatch.Elapsed;
+    Console.WriteLine("Time taken: " + ts.ToString(@"mm\:ss\.ff"));
 
   }
-  private static List<ulong> Primes(ulong num)
+  private static List<int> Primes(int num)
   {
-    List<ulong> Primes = new List<ulong>();
-    for (ulong n = 1; n <= num; n++)
+    List<int> Primes = new List<int>();
+    for (int n = 1; n <= num; n++)
     {
-      List<ulong> Factors = new List<ulong>();
-      for (ulong i = 1; i <= n; i++)
+      List<int> Factors = new List<int>();
+      for (int i = 1; i <= n; i++)
       {
         if (n % i == 0)
         {
@@ -35,12 +41,12 @@ internal static class primes
     }
     return Primes;
   }
-  private static List<ulong> AddPrimes(ulong num, List<ulong> primes) 
+  private static List<int> AddPrimes(int num, List<int> primes) 
   {
-    List<ulong> addPrimes = new List<ulong>();
-    foreach (ulong p in primes)
+    List<int> addPrimes = new List<int>();
+    foreach (int p in primes)
     {
-      foreach (ulong i in primes)
+      foreach (int i in primes)
       {
         if (p + i == num)
         {
