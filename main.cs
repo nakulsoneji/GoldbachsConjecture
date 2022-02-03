@@ -15,7 +15,6 @@ internal static class primes
     stopWatch.Stop();
     TimeSpan ts = stopWatch.Elapsed;
     Console.WriteLine("Time taken: " + ts.ToString(@"mm\:ss\.ff"));
-
   }
   private static List<int> Primes(int num)
   {
