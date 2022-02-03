@@ -6,17 +6,18 @@ internal static class primes
   private static void Main(string[] args)
   {
     Console.WriteLine("Enter in a even number above 2");
-    int number = Int32.Parse(Console.ReadLine()!);
+    ulong number = UInt64.Parse(Console.ReadLine()!);
     Console.Write("Your two prime numbers are ");
     Console.WriteLine($"{AddPrimes(number, Primes(number))[0]} and {AddPrimes(number, Primes(number))[1]}");
+
   }
-  private static List<int> Primes(int num)
+  private static List<ulong> Primes(ulong num)
   {
-    List<int> Primes = new List<int>();
-    for (int n = 1; n <= num; n++)
+    List<ulong> Primes = new List<ulong>();
+    for (ulong n = 1; n <= num; n++)
     {
-      List<int> Factors = new List<int>();
-      for (int i = 1; i <= n; i++)
+      List<ulong> Factors = new List<ulong>();
+      for (ulong i = 1; i <= n; i++)
       {
         if (n % i == 0)
         {
@@ -34,12 +35,12 @@ internal static class primes
     }
     return Primes;
   }
-  private static List<int> AddPrimes(int num, List<int> primes) 
+  private static List<ulong> AddPrimes(ulong num, List<ulong> primes) 
   {
-    List<int> addPrimes = new List<int>();
-    foreach (int p in primes)
+    List<ulong> addPrimes = new List<ulong>();
+    foreach (ulong p in primes)
     {
-      foreach (int i in primes)
+      foreach (ulong i in primes)
       {
         if (p + i == num)
         {
